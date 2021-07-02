@@ -8,7 +8,7 @@
   #### 6)Price Estimation Feature
   #### 7)Add Products feature 
   #### 8)Edit Product feature
-  #### 7)Forgot Password Feature
+  #### 9)Forgot Password Feature
 
 
 
