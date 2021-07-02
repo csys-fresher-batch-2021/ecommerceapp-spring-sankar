@@ -12,7 +12,8 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import in.sankarvinoth.ecommerce_app.exceptions.ProductExistsException;
+
+
 import in.sankarvinoth.ecommerce_app.exceptions.ServiceException;
 
 @ControllerAdvice
@@ -39,16 +40,6 @@ APIResponse apiResponse;
 		return  ResponseEntity.status(apiResponse.getStatus()).body(apiResponse);
 	}
 	
-	
-	@SuppressWarnings("rawtypes")
-	@ExceptionHandler
-	public ResponseEntity productAlreadyExistsException(ProductExistsException e) {
-		message.setErrorMessage(e.getMessage());
-		apiResponse.setMessage(message.getErrorMessage());
-		apiResponse.setStatus(HttpStatus.BAD_REQUEST.value());
-		return  ResponseEntity.status(apiResponse.getStatus()).body(apiResponse);
-	}
-	
 	/**
 	 * method to handle the validation exceptions 
 	 * @param e
@@ -56,7 +47,7 @@ APIResponse apiResponse;
 	 */
 	    @SuppressWarnings("rawtypes")
 		@ExceptionHandler(MethodArgumentNotValidException.class)
-	   public ResponseEntity  handleConstraintViolationException2(MethodArgumentNotValidException e) {
+	    ResponseEntity  handleConstraintViolationException2(MethodArgumentNotValidException e) {
 	    	List<FieldError> fieldErrors = e.getFieldErrors();
 	    	Map<String,String> messages = new LinkedHashMap<>();
 	    	for(FieldError field : fieldErrors) {

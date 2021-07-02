@@ -13,8 +13,6 @@ public class UserRepositoryImp implements UserRepository{
 	private static final String SQL1="insert into UserRegister(fullName,userName,email,mobileNumber,password,Security_Question,Security_answer,created_date,modified_date) values(?,?,?,?,?,?,?,?,?)";
     private static final String SQL2="select username,password from UserRegister where username=? and password=?";
     private static final String SQL3="select fullname,username from UserRegister where mobileNumber=? or email=?";
-    private static final String SQL4="select Security_Question,Security_answer from UserRegister where mobileNumber=?";
-    private static final String SQL5="UPDATE UserRegister set password=? where mobileNumber=?";
     public int saveUser(User users) {
 		int rowsAffected=jdbcTemplate.update(SQL1,users.getFullName(),users.getUserName(),users.getEmail(),users.getMobileNumber(),users.getPassword(),users.getSecurityQuestion(),users.getSecurityAnswer(),users.getCreatedDate(),users.getModifiedDate());
 		
@@ -28,17 +26,6 @@ public class UserRepositoryImp implements UserRepository{
 	public List<User> findUserByMobileNumberAndEmail(Long mobileNumber,String email) {
 		return jdbcTemplate.query(SQL3, BeanPropertyRowMapper.newInstance(User.class),mobileNumber,email);
 		
-	}
-
-	
-	public List<User> findUserByMobileNumber(Long mobileNumber) {
-	
-		return jdbcTemplate.query(SQL4, BeanPropertyRowMapper.newInstance(User.class),mobileNumber);
-	}
-	
-	public int UpdateUserCredentials(Long mobileNumber,String password) {
-		int rowsAffected=jdbcTemplate.update(SQL5,password,mobileNumber);
-		return rowsAffected;
 	}
 	
 	

@@ -52,7 +52,7 @@ function loadProducts() {
 				cartButton = "<button type='button' id='btn' onclick=addToCart('"+product.productId+"') class='btn btn-success'>Add to Cart</button>";
 			}
 			
-			let editProductButton ="<button type='button'  onclick=editProduct('"+product.productId+"') class='btn btn-info'>Edit Product</button>";
+			let editProductButton ="<button type='button' class='btn btn-info'>Edit Product</button>";
 			content+= "<tr><td>"+(++i)+"</td><td>"+product.productId+"</td><td>"+product.productName+"</td><td>"+product.category+"</td><td>"+product.price+"</td><td>"+product.quantity+"</td><td>"+product.status+"</td><td>"+cartButton+"</td><td>"+editProductButton+"</td></tr>";
 		}
 		console.log(content);
@@ -73,14 +73,6 @@ function addToCart(productId) {
 		localStorage.setItem("ITEMS_ADDED", JSON.stringify(cartItems));
 		loadProducts();
 		
-	});
-}
-
-function editProduct(productId) {
-	let url="editProduct/"+productId;
-	axios.post(url).then(res=> {
-		localStorage.setItem("Product_to_Edit", JSON.stringify(res.data));
-		window.location="EditProducts.jsp";
 	});
 }
 </script>

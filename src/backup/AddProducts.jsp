@@ -67,14 +67,11 @@ function sendProductDetails() {
 	let url = "AddProducts";	
 	axios.post(url,data).then(res=>{
 		console.log(res.data);
-		toastr.success(res.data.message);
-		setTimeout(function(){ window.location="AddProducts.jsp"; }, 1000);
+		alert("Successfully Added");
+		window.location="ListProducts.jsp";
 		
-	}).catch(err=>{
-		console.log(err.response.data.message);
-		toastr.error(err.response.data.message);
-						
-	});	
+	});
+	
 }
 </script>	
 		<h4>Instruction:</h4>

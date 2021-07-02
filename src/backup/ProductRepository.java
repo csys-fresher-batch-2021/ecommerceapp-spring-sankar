@@ -10,9 +10,9 @@ import in.sankarvinoth.ecommerce_app.model.Product;
  */
 public interface ProductRepository {
 	public int saveProduct(Product product);
-	public List<Product>  findAllProducts(String status);
-	public List<Product> findProductByProductId(String productId);
-	public List<Product> getAllProducts();
+	public List<Product>  getAllProducts(String status);
+	public void getAllCartItems(String productId);
+	public List<Product> getAllPro();
 	public void removeProductFromCart(String productId);
-	public void updateProduct(Product product);
+
 }

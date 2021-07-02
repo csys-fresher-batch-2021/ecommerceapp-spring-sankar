@@ -112,7 +112,6 @@ let url="getAllCartItems";
 		}
 		});
 	}
-	
 	function removeFromCart(productId) {
 		let url="RemoveFromCart/"+productId;
 		axios.delete(url).then(res=> {

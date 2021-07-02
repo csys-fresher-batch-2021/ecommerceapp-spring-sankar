@@ -1,4 +1,7 @@
 package in.sankarvinoth.ecommerce_app.controller;
+
+
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -73,27 +76,5 @@ public class UserController {
 			return ResponseEntity.status(apiResponse.getStatus()).body(apiResponse);
 		
 	}
-	/**
-	 * method to update user password
-	 * @param userdto
-	 * @return
-	 */
-	@SuppressWarnings("rawtypes")
-	@PostMapping("updateCredentials")
-	public ResponseEntity updateUserCredentials( @RequestBody UserDTO userdto) {
-		users.setMobileNumber(userdto.getMobileNumber());
-		users.setSecurityQuestion(userdto.getSecurityQuestion());
-		users.setSecurityAnswer(userdto.getSecurityAnswer());
-		users.setPassword(userdto.getPassword());
-				userService.updatePasswordService(users);
-				apiResponse.setData(users);
-				apiResponse.setStatus(HttpStatus.OK.value());
-				apiResponse.setMessage(message.getInfoMessage());
-			return ResponseEntity.status(apiResponse.getStatus()).body(apiResponse);
-		
-	}
-	
-	
-	
 	
 }

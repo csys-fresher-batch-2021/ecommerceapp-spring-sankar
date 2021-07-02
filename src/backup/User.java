@@ -1,6 +1,5 @@
 package in.sankarvinoth.ecommerce_app.model;
 import java.time.LocalDate;
-
 import org.springframework.stereotype.Component;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
@@ -20,6 +19,5 @@ private String securityQuestion;
 private String securityAnswer;
 private LocalDate createdDate=LocalDate.now();
 private LocalDate modifiedDate=LocalDate.now();
-
 
 }

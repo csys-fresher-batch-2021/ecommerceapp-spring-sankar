@@ -22,10 +22,7 @@ public class UserService {
    UserRepository userRepository;
    
    
-   /**
-    * method to add new user to the user table 
-    * @param user
-    */
+   
    public void addUserService(User user) {
 	  
 	       List<User> users=userRepository.findUserByMobileNumberAndEmail(user.getMobileNumber(),user.getEmail());
@@ -57,24 +54,5 @@ public class UserService {
 			throw new ServiceException("Invalid Inputs");
 		}
 		return isValidLogin;
-	}
-	/**
-	 * method to update password of user
-	 * @param user
-	 */
-	public void updatePasswordService(User user) {
-		List<User> matchedUsers=userRepository.findUserByMobileNumber(user.getMobileNumber());
-		if(!matchedUsers.isEmpty()) {
-			int rowsAffected=userRepository.UpdateUserCredentials(user.getMobileNumber(),user.getPassword());
-			if(rowsAffected>0) {
-				message.setInfoMessage("Updated Successfully");
-			}
-			else {
-				throw new ServiceException("Something Went Wrong");
-			}
-		}
-		else {
-			throw new ServiceException("please Use a registered mobile Number");
-		}
 	}
 }
