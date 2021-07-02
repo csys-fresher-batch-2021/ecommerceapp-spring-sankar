@@ -6,5 +6,10 @@
   #### 4)Add to Cart feature
   #### 5)Remove From Cart feature
   #### 6)Price Estimation Feature
+  #### 7)Add Products feature 
+  #### 8)Edit Product feature
+  #### 7)Forgot Password Feature
+
+
 
   
